@@ -1,5 +1,3 @@
-//create a DishService for kysymys db
-
 package com.group5.restaurant.group5restaurant.dish;
 
 import org.springframework.beans.factory.annotation.Autowired;
