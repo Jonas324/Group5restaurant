@@ -12,7 +12,7 @@ public class Dish {
 
     @Column(name = "Dish")
     private String dishName;
-    
+
 
     public Dish() {
     }
