@@ -19,7 +19,6 @@ public class DishService {
         dishRepository.save(dish);
     }
 
-    //update Dish by id with error handling
     public void updateDish(Integer id, String dishName) {
         Dish dish = dishRepository.findById(id).orElseThrow(() -> new IllegalStateException(
                 "model with id " + id + " does not exist"
