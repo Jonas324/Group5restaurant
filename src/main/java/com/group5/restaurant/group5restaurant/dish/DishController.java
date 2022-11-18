@@ -22,9 +22,11 @@ public class DishController {
         dishService.addDish(dish);
     }
 
-    @PutMapping
-    public void updateDish(@RequestBody Dish dish) {
-        dishService.updateDish(dish);
+    @PutMapping(path = "{id}")
+    public void updateDish(
+            @PathVariable("id") Integer id,
+            @RequestParam(required = false) String dishName) {
+        dishService.updateDish(id, dishName);
     }
 
     @DeleteMapping("/{id}")

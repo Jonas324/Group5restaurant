@@ -19,12 +19,25 @@ public class DishService {
         dishRepository.save(dish);
     }
 
-    public void updateDish(Dish dish) {
+    //update Dish by id with error handling
+    public void updateDish(Integer id, String dishName) {
+        Dish dish = dishRepository.findById(id).orElseThrow(() -> new IllegalStateException(
+                "model with id " + id + " does not exist"
+        ));
+
+        if (dishName != null && dishName.length() > 0 && !dish.equals(dish.getDishName())) {
+            dish.setDishName(dishName);
+        }
         dishRepository.save(dish);
     }
 
-    public void deleteDish(Integer id) {
-        dishRepository.deleteById(id);
+
+        public void deleteDish(Integer id) {
+        if (dishRepository.existsById(id)) {
+            dishRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Dish with id " + id + " does not exist");
+        }
     }
 }
 
