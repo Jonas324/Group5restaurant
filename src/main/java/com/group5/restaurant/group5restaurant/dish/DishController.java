@@ -25,8 +25,10 @@ public class DishController {
     @PutMapping(path = "{id}")
     public void updateDish(
             @PathVariable("id") Integer id,
-            @RequestParam(required = false) String dishName) {
-        dishService.updateDish(id, dishName);
+            @RequestParam(required = false) String dishName,
+            @RequestParam(required = false) Integer price
+    ) {
+        dishService.updateDish(id, dishName, price);
     }
 
     @DeleteMapping("/{id}")

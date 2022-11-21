@@ -19,7 +19,7 @@ public class DishService {
         dishRepository.save(dish);
     }
 
-    public void updateDish(Integer id, String dishName) {
+    public void updateDish(Integer id, String dishName, Integer price) {
         Dish dish = dishRepository.findById(id).orElseThrow(() -> new IllegalStateException(
                 "model with id " + id + " does not exist"
         ));
@@ -27,6 +27,11 @@ public class DishService {
         if (dishName != null && dishName.length() > 0 && !dish.equals(dish.getDishName())) {
             dish.setDishName(dishName);
         }
+
+        if (price != null && price > 0 && !dish.equals(dish.getPrice())) {
+            dish.setPrice(price);
+        }
+
         dishRepository.save(dish);
     }
 
