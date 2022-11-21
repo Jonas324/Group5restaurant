@@ -13,6 +13,8 @@ public class Dish {
     @Column(name = "Dish")
     private String dishName;
 
+    private int price;
+
 
     public Dish() {
     }
@@ -35,6 +37,14 @@ public class Dish {
 
     public void setDishName(String dishName) {
         this.dishName = dishName;
+    }
+
+    public  Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
 
