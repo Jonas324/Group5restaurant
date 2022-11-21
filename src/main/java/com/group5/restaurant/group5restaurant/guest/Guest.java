@@ -4,39 +4,28 @@ import javax.persistence.*;
 
 
 @Entity
-@Table
+@Table(name = "Guests")
 public class Guest {
 
     @Id
-    @SequenceGenerator(
-            name = "guest_sequence",
-            sequenceName = "guest_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "guest_sequence"
-    )
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private Integer id;
+    @Column(name = "GuestName")
     private String guestName;
 
     public Guest() {
-    }
-
-    public Guest(Long id, String guestName) {
-        this.id = id;
-        this.guestName = guestName;
     }
 
     public Guest(String guestName) {
         this.guestName = guestName;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -48,12 +37,4 @@ public class Guest {
         this.guestName = guestName;
     }
 
-    @Override
-    public String toString() {
-        return "Guest{" +
-                "id=" + id +
-                ", guestName='" + guestName + '\'' +
-                '}';
-    }
 }
-
