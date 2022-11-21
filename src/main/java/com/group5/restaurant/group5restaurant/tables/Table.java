@@ -3,7 +3,7 @@ package com.group5.restaurant.group5restaurant.tables;
 import javax.persistence.*;
 
 @Entity
-@javax.persistence.Table
+@javax.persistence.Table(name = "Tables")
 public class Table {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
