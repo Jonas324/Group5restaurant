@@ -16,12 +16,16 @@ public class Bill {
     @Column(name = "PayAmount")
     private Integer payAmount;
 
+    @Column(name = "CustomerID")
+    private Integer customerID;
+
     public Bill() {
     }
 
-    public Bill(Integer billID, Integer payAmount) {
+    public Bill(Integer billID, Integer payAmount, Integer customerID) {
         this.billID = billID;
         this.payAmount = payAmount;
+        this.customerID = customerID;
     }
 
     public Integer getId() {
@@ -55,6 +59,14 @@ public class Bill {
     }
 
     public void setTotalCost(Integer totalCost) {
+    }
+
+    public Integer getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(Integer customerID) {
+        this.customerID = customerID;
     }
 
 }

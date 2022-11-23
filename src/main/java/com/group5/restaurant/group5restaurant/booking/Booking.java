@@ -1,5 +1,6 @@
 package com.group5.restaurant.group5restaurant.booking;
 
+import com.group5.restaurant.group5restaurant.guest.Guest;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -76,4 +77,5 @@ public class Booking {
     public void setTableID(Integer tableID) {
         this.tableID = tableID;
     }
+
 }

@@ -1,5 +1,6 @@
 package com.group5.restaurant.group5restaurant.booking;
 
+import com.group5.restaurant.group5restaurant.guest.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +35,13 @@ public class BookingController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBooking(@PathVariable Integer id) {
+    public void deleteBooking(@PathVariable Integer id)
+    {
         bookingService.deleteBooking(id);
     }
+
+//get all tables and set tableID based on availability
+
+
 
 }

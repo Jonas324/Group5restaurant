@@ -1,5 +1,6 @@
 package com.group5.restaurant.group5restaurant.booking;
 
+import com.group5.restaurant.group5restaurant.guest.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +42,7 @@ public class BookingService {
     public void deleteBooking(Integer id) {
         bookingRepository.deleteById(id);
     }
+
+
 
 }
