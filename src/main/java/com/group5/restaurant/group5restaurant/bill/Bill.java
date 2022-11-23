@@ -1,4 +1,4 @@
-package com.group5.restaurant.group5restaurant.bill;//create a Bill object
+package com.group5.restaurant.group5restaurant.bill;
 
 import javax.persistence.*;
 
@@ -46,6 +46,15 @@ public class Bill {
 
     public void setPayAmount(Integer payAmount) {
         this.payAmount = payAmount;
+    }
+
+    public void setBookingID(Integer bookingID) {
+    }
+
+    public void setTableID(Integer tableID) {
+    }
+
+    public void setTotalCost(Integer totalCost) {
     }
 
 }
