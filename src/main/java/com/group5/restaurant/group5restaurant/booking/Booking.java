@@ -13,6 +13,7 @@ public class Booking {
     private Integer id;
 
     @Column(name = "StartTime")
+    //separate date and time
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private String startTime;
 
