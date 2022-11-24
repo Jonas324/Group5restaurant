@@ -8,7 +8,7 @@ public class Dish {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer dishId;
 
     @Column(name = "Dish")
     private String dishName;
@@ -24,11 +24,11 @@ public class Dish {
     }
 
     public Integer getId() {
-        return id;
+        return dishId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.dishId = dishId;
     }
 
     public String getDishName() {

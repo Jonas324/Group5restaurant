@@ -10,7 +10,7 @@ public class Guest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer id;
+    private Integer guestId;
     @Column(name = "GuestName")
     private String guestName;
 
@@ -22,11 +22,11 @@ public class Guest {
     }
 
     public Integer getId() {
-        return id;
+        return guestId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.guestId = guestId;
     }
 
     public String getGuestName() {

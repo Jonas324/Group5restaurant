@@ -1,6 +1,5 @@
 package com.group5.restaurant.group5restaurant.booking;
 
-import com.group5.restaurant.group5restaurant.guest.Guest;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -11,7 +10,7 @@ public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer bookingId;
 
     @Column(name = "StartTime")
     //separate date and time
@@ -39,11 +38,11 @@ public class Booking {
     }
 
     public Integer getId() {
-        return id;
+        return bookingId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.bookingId = bookingId;
     }
 
     public String getStartTime() {
