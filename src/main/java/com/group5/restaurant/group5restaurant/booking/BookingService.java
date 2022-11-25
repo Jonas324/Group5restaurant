@@ -18,15 +18,7 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
-    public void addBooking(Booking booking) {
-        bookingRepository.save(booking);
-    }
-
-    public void deleteBooking(Integer id) {
-        bookingRepository.deleteById(id);
-    }
-
-public boolean isTableAvailable(BookingDTO bookingDTO) {
+    public boolean isTableAvailable(BookingDTO bookingDTO) {
         Date startTime = bookingDTO.getStartTime();
         Date endTime = bookingDTO.getEndTime();
         Integer tableID = bookingDTO.getTableID();
@@ -40,5 +32,20 @@ public boolean isTableAvailable(BookingDTO bookingDTO) {
         }
         return true;
     }
+
+    public void addBooking(Booking booking) {
+        if  (isTableAvailable(new BookingDTO(booking.getStartTime(), booking.getEndTime(), booking.getTableID()))) {
+            bookingRepository.save(booking);
+        }
+        else {
+            throw new RuntimeException("Table is not available");
+        }
+    }
+
+    public void deleteBooking(Integer id) {
+        bookingRepository.deleteById(id);
+    }
+
+
 
 }
