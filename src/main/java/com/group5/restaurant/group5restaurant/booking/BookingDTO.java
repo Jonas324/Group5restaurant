@@ -1,44 +1,27 @@
-//Create a Booking Class with the following attributes BookingId, StartTime, EndTime, NumberOfGuests, TableId
+//booking dto
 
 package com.group5.restaurant.group5restaurant.booking;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "Bookings")
-public class Booking {
+public class BookingDTO {
 
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BookingID")
     private Integer bookingID;
-
-    @Column(name = "StartTime")
     private Date startTime;
-
-    @Column(name = "EndTime")
     private Date endTime;
-
-    @Column(name = "NumberOfGuests")
     private Integer numberOfGuests;
-
-    @Column(name = "TableID")
     private Integer tableID;
 
-    public Booking() {
+    public BookingDTO() {
     }
 
-    public Booking(Integer bookingID, Date startTime, Date endTime, Integer numberOfGuests, Integer tableID) {
+    public BookingDTO(Integer bookingID, Date startTime, Date endTime, Integer numberOfGuests, Integer tableID) {
         this.bookingID = bookingID;
         this.startTime = startTime;
         this.endTime = endTime;
         this.numberOfGuests = numberOfGuests;
         this.tableID = tableID;
     }
-
 
     public Integer getBookingID() {
         return bookingID;
@@ -79,5 +62,4 @@ public class Booking {
     public void setTableID(Integer tableID) {
         this.tableID = tableID;
     }
-
 }
