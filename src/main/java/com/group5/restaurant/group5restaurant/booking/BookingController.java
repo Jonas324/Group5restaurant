@@ -30,9 +30,4 @@ public class BookingController {
         bookingService.deleteBooking(id);
     }
 
-//isTableAvailable using BookingDTO
-    @PostMapping("/isTableAvailable")
-    public boolean isTableAvailable(@RequestBody BookingDTO bookingDTO) {
-        return bookingService.isTableAvailable(bookingDTO);
-    }
 }

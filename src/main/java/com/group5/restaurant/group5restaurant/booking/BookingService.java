@@ -1,5 +1,3 @@
-//create a basic BookingService class
-
 package com.group5.restaurant.group5restaurant.booking;
 
 import org.springframework.beans.factory.annotation.Autowired;

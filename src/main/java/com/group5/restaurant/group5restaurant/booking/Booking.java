@@ -1,5 +1,3 @@
-//Create a Booking Class with the following attributes BookingId, StartTime, EndTime, NumberOfGuests, TableId
-
 package com.group5.restaurant.group5restaurant.booking;
 
 import javax.persistence.*;

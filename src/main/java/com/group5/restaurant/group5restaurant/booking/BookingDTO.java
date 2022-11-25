@@ -1,5 +1,3 @@
-//booking dto
-
 package com.group5.restaurant.group5restaurant.booking;
 
 import java.util.Date;
