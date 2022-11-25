@@ -30,9 +30,9 @@ public class BookingController {
         bookingService.deleteBooking(id);
     }
 
-
-    @GetMapping("/isTableAvailable/{tableID}/{startTime}/{endTime}")
-    public boolean isTableAvailable(@PathVariable Integer tableID, @PathVariable Date startTime, @PathVariable Date endTime) {
-        return bookingService.isTableAvailable(tableID, startTime, endTime);
+//isTableAvailable using BookingDTO
+    @PostMapping("/isTableAvailable")
+    public boolean isTableAvailable(@RequestBody BookingDTO bookingDTO) {
+        return bookingService.isTableAvailable(bookingDTO);
     }
 }

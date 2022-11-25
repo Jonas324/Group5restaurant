@@ -26,18 +26,19 @@ public class BookingService {
         bookingRepository.deleteById(id);
     }
 
+public boolean isTableAvailable(BookingDTO bookingDTO) {
+        Date startTime = bookingDTO.getStartTime();
+        Date endTime = bookingDTO.getEndTime();
+        Integer tableID = bookingDTO.getTableID();
 
-    public boolean isTableAvailable(Integer tableID, Date startTime, Date endTime) {
-        List<Booking> bookings = bookingRepository.findAll();
+        List<Booking> bookings = bookingRepository.findAllByTableID(tableID);
+
         for (Booking booking : bookings) {
-            if (booking.getTableID().equals(tableID)) {
-                if (booking.getStartTime().before(endTime) && booking.getEndTime().after(startTime)) {
-                    return false;
-                }
+            if (booking.getStartTime().before(endTime) && booking.getEndTime().after(startTime)) {
+                return false;
             }
         }
         return true;
     }
-
 
 }
