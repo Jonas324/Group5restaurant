@@ -1,9 +1,13 @@
 package com.group5.restaurant.group5restaurant.guest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
+
 
 @RestController
 @RequestMapping("api/guest")
@@ -17,9 +21,14 @@ public class GuestController {
     }
 
     @GetMapping
-    public List<Guest> getGuests(){
-        return guestService.getGuests();
+    public ResponseEntity<List<Guest>> getAllGuests() {
+        List<Guest> guests = guestService.getGuests();
+        if (guests.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(guests, HttpStatus.OK);
     }
+
 
     @PostMapping
     public void registerNewGuest(@RequestBody Guest guest){

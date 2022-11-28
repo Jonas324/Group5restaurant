@@ -1,6 +1,9 @@
 package com.group5.restaurant.group5restaurant.dish;
 
+import com.group5.restaurant.group5restaurant.guest.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,9 +16,14 @@ public class DishController {
     private DishService dishService;
 
     @GetMapping
-    public List<Dish> getDishes() {
-        return dishService.getDishes();
+    public ResponseEntity<List<Dish>> getDishes() {
+        List<Dish> dishes = dishService.getDishes();
+        if (dishes.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(dishes, HttpStatus.OK);
     }
+
 
     @PostMapping
     public void addDish(@RequestBody Dish dish) {

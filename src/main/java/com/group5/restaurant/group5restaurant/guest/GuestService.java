@@ -18,6 +18,7 @@ public class GuestService {
         this.guestRepository = guestRepository;
     }
 
+
     public List<Guest> getGuests(){
         return guestRepository.findAll();
     }

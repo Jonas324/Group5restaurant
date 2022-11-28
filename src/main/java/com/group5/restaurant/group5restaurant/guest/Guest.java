@@ -10,6 +10,7 @@ public class Guest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    @Column(name = "GuestID")
     private Integer guestId;
     @Column(name = "GuestName")
     private String guestName;

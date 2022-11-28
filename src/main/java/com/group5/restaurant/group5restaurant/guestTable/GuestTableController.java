@@ -1,6 +1,7 @@
 package com.group5.restaurant.group5restaurant.guestTable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,8 +18,12 @@ public class GuestTableController {
     }
 
     @GetMapping
-    public List<GuestTable> getGuestTables(){
-        return guestTableService.getGuestTables();
+    public ResponseEntity<List<GuestTable>> getAllGuestTables() {
+        List<GuestTable> guestTables = guestTableService.getGuestTables();
+        if (guestTables.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(guestTables);
     }
 
     @PostMapping

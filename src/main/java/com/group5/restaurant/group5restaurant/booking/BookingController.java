@@ -3,9 +3,10 @@
 package com.group5.restaurant.group5restaurant.booking;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -16,8 +17,12 @@ public class BookingController {
     private BookingService bookingService;
 
     @GetMapping
-    public List<Booking> getAllBookings() {
-        return bookingService.getAllBookings();
+    public ResponseEntity<List<Booking>> getBookings() {
+        List<Booking> bookings = bookingService.getAllBookings();
+        if (bookings.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(bookings, HttpStatus.OK);
     }
 
     @PostMapping
