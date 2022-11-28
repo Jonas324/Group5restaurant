@@ -8,8 +8,6 @@ public class Bill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
     @Column(name = "BillID")
     private Integer billID;
 
@@ -28,14 +26,6 @@ public class Bill {
         this.customerID = customerID;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getBillID() {
         return billID;
     }
@@ -52,15 +42,6 @@ public class Bill {
         this.payAmount = payAmount;
     }
 
-    public void setBookingID(Integer bookingID) {
-    }
-
-    public void setTableID(Integer tableID) {
-    }
-
-    public void setTotalCost(Integer totalCost) {
-    }
-
     public Integer getCustomerID() {
         return customerID;
     }
@@ -68,5 +49,6 @@ public class Bill {
     public void setCustomerID(Integer customerID) {
         this.customerID = customerID;
     }
+
 
 }

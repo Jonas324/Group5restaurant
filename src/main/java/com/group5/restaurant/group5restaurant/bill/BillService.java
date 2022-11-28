@@ -19,19 +19,16 @@ public class BillService {
         billRepository.save(bill);
     }
 
-    public void updateBill(Integer id, Integer bookingID, Integer tableID, Integer totalCost) {
-        Bill bill = billRepository.findById(id).orElse(null);
-        if (bill != null) {
-            if (bookingID != null) {
-                bill.setBookingID(bookingID);
-            }
-            if (tableID != null) {
-                bill.setTableID(tableID);
-            }
-            if (totalCost != null) {
-                bill.setTotalCost(totalCost);
-            }
-            billRepository.save(bill);
+    public void updateBill(Integer id, Integer billID, Integer payAmount, Integer customerID) {
+        Bill bill = billRepository.findById(id).orElseThrow(() -> new IllegalStateException("Bill with id " + id + " does not exist"));
+        if (billID != null && billID > 0 && billID != bill.getBillID()) {
+            bill.setBillID(billID);
+        }
+        if (payAmount != null && payAmount > 0 && payAmount != bill.getPayAmount()) {
+            bill.setPayAmount(payAmount);
+        }
+        if (customerID != null && customerID > 0 && customerID != bill.getCustomerID()) {
+            bill.setCustomerID(customerID);
         }
     }
 

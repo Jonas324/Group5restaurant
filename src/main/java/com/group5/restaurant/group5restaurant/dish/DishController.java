@@ -24,7 +24,6 @@ public class DishController {
         return new ResponseEntity<>(dishes, HttpStatus.OK);
     }
 
-
     @PostMapping
     public void addDish(@RequestBody Dish dish) {
         dishService.addDish(dish);

@@ -1,6 +1,9 @@
 package com.group5.restaurant.group5restaurant.bill;
 
+import com.group5.restaurant.group5restaurant.booking.Booking;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,8 +17,12 @@ public class BillController {
     private BillService billService;
 
     @GetMapping
-    public List<Bill> getBills() {
-        return billService.getBills();
+    public ResponseEntity<List<Bill>> getBills() {
+        List<Bill> bills = billService.getBills();
+        if (bills.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(bills, HttpStatus.OK);
     }
 
     @PostMapping
