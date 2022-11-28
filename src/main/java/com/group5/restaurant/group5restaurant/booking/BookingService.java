@@ -1,9 +1,7 @@
 package com.group5.restaurant.group5restaurant.booking;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.Date;
 import java.util.List;
@@ -35,9 +33,9 @@ public class BookingService {
         return true;
     }
 
-    public void addBooking(Booking booking) {
+    public void addBooking(BookingDTO booking) {
         if  (isTableAvailable(new BookingDTO(booking.getStartTime(), booking.getEndTime(), booking.getTableID()))) {
-            bookingRepository.save(booking);
+            bookingRepository.save(new Booking(booking.getStartTime(), booking.getEndTime(), booking.getTableID()));
         }
         else {
             throw new RuntimeException("Table is not available");

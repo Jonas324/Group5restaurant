@@ -37,6 +37,12 @@ public class Booking {
         this.tableID = tableID;
     }
 
+    public Booking(Date startTime, Date endTime, Integer tableID) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.tableID = tableID;
+    }
+
 
     public Integer getBookingID() {
         return bookingID;

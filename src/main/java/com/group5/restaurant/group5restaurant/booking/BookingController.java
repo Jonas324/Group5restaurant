@@ -26,9 +26,9 @@ public class BookingController {
     }
 
     @PostMapping
-    public ResponseEntity<Booking> addBooking(@RequestBody Booking booking) {
+    public ResponseEntity<Booking> addBooking(@RequestBody BookingDTO booking) {
         bookingService.addBooking(booking);
-        return new ResponseEntity<>(booking, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
