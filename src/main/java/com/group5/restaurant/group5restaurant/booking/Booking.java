@@ -26,15 +26,19 @@ public class Booking {
     @Column(name = "TableID")
     private Integer tableID;
 
+    @Column(name = "BookerID")
+    private Integer bookerID;
+
     public Booking() {
     }
 
-    public Booking(Integer bookingID, Date startTime, Date endTime, Integer numberOfGuests, Integer tableID) {
+    public Booking(Integer bookingID, Date startTime, Date endTime, Integer numberOfGuests, Integer tableID, Integer bookerID) {
         this.bookingID = bookingID;
         this.startTime = startTime;
         this.endTime = endTime;
         this.numberOfGuests = numberOfGuests;
         this.tableID = tableID;
+        this.bookerID = bookerID;
     }
 
     public Booking(Date startTime, Date endTime, Integer tableID) {
@@ -83,5 +87,15 @@ public class Booking {
     public void setTableID(Integer tableID) {
         this.tableID = tableID;
     }
+
+    public Integer getBookerID() {
+        return bookerID;
+    }
+
+    public void setBookerID(Integer bookerID) {
+        this.bookerID = bookerID;
+    }
+
+
 
 }

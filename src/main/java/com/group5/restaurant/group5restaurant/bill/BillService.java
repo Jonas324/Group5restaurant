@@ -1,5 +1,6 @@
 package com.group5.restaurant.group5restaurant.bill;
 
+import com.group5.restaurant.group5restaurant.booking.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
