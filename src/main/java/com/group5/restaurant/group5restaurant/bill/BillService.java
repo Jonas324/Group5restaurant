@@ -15,8 +15,12 @@ public class BillService {
         return billRepository.findAll();
     }
 
-    public void addBill(Bill bill) {
-        billRepository.save(bill);
+    //addBill with DTO
+    public void addBill(BillDTO bill) {
+        Bill newBill = new Bill();
+        newBill.setPayAmount(bill.getPayAmount());
+        newBill.setCustomerID(bill.getCustomerID());
+        billRepository.save(newBill);
     }
 
     public void updateBill(Integer id, Integer billID, Integer payAmount, Integer customerID) {

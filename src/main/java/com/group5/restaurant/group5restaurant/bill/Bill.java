@@ -26,6 +26,12 @@ public class Bill {
         this.customerID = customerID;
     }
 
+    public Bill(double amount) {
+    }
+
+    public Bill(int payAmount, int customerID) {
+    }
+
     public Integer getBillID() {
         return billID;
     }
