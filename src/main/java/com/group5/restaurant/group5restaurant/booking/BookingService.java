@@ -1,5 +1,6 @@
 package com.group5.restaurant.group5restaurant.booking;
 
+import com.group5.restaurant.group5restaurant.guest.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,8 @@ public class BookingService {
 
     @Autowired
     private BookingRepository bookingRepository;
+    @Autowired
+    private GuestService guestService;
 
 
 
@@ -33,12 +36,14 @@ public class BookingService {
         return true;
     }
 
-    public void addBooking(BookingDTO booking) {
-        if  (isTableAvailable(new BookingDTO(booking.getStartTime(), booking.getEndTime(), booking.getTableID()))) {
-            bookingRepository.save(new Booking(booking.getStartTime(), booking.getEndTime(), booking.getTableID()));
+    public Booking addBooking(BookingDTO booking) {
+        if (!guestService.doesGuestExist(booking.getGuestName())) return null;
+        if  (isTableAvailable(new BookingDTO(booking.getStartTime(), booking.getEndTime(), booking.getTableID(), booking.getGuestName()))) {
+            Booking b = bookingRepository.save(new Booking(booking.getStartTime(), booking.getEndTime(), booking.getTableID()));
+            return b;
         }
         else {
-            throw new RuntimeException("Table is not available");
+            return null;
         }
     }
 

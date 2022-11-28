@@ -50,5 +50,15 @@ public class GuestService {
             guest.setGuestName(guestName);
         }
     }
+
+    public boolean doesGuestExist (String guestName) {
+        Optional<Guest> guestOptional = guestRepository.findGuestByName(guestName);
+        if (guestOptional.isPresent()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
 

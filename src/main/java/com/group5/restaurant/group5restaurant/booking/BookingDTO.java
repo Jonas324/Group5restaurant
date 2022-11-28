@@ -9,13 +9,16 @@ public class BookingDTO {
     private Date endTime;
     private Integer tableID;
 
+    private String guestName;
+
     public BookingDTO() {
     }
 
-    public BookingDTO(Date startTime, Date endTime, Integer tableID) {
+    public BookingDTO(Date startTime, Date endTime, Integer tableID, String guestName) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.tableID = tableID;
+        this.guestName = guestName;
     }
 
     public Date getStartTime() {
@@ -40,6 +43,14 @@ public class BookingDTO {
 
     public void setTableID(Integer tableID) {
         this.tableID = tableID;
+    }
+
+    public String getGuestName() {
+        return guestName;
+    }
+
+    public void setGuestName(String guestName) {
+        this.guestName = guestName;
     }
 
 }
