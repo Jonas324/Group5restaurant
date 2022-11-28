@@ -29,10 +29,10 @@ public class GuestController {
         return new ResponseEntity<>(guests, HttpStatus.OK);
     }
 
-
     @PostMapping
-    public void registerNewGuest(@RequestBody Guest guest){
+    public ResponseEntity<Guest> registerNewGuest(@RequestBody Guest guest) {
         guestService.addNewGuest(guest);
+        return new ResponseEntity<>(guest, HttpStatus.CREATED);
     }
 
     @DeleteMapping("{guestId}")

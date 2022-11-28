@@ -26,8 +26,9 @@ public class BillController {
     }
 
     @PostMapping
-    public void addBill(@RequestBody Bill bill) {
+    public ResponseEntity<Bill> addBill(@RequestBody Bill bill) {
         billService.addBill(bill);
+        return new ResponseEntity<>(bill, HttpStatus.CREATED);
     }
 
     @PutMapping(path = "{id}")

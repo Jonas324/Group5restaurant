@@ -25,8 +25,9 @@ public class DishController {
     }
 
     @PostMapping
-    public void addDish(@RequestBody Dish dish) {
+    public ResponseEntity<Dish> addDish(@RequestBody Dish dish) {
         dishService.addDish(dish);
+        return new ResponseEntity<>(dish, HttpStatus.CREATED);
     }
 
     @PutMapping(path = "{id}")

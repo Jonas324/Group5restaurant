@@ -27,8 +27,9 @@ public class GuestTableController {
     }
 
     @PostMapping
-    public void registerNewGuestTable(@RequestBody GuestTable guestTable){
+    public ResponseEntity<GuestTable> registerNewGuestTable(@RequestBody GuestTable guestTable) {
         guestTableService.addNewGuestTable(guestTable);
+        return ResponseEntity.status(201).body(guestTable);
     }
 
     @DeleteMapping("{tableId}")

@@ -26,8 +26,9 @@ public class BookingController {
     }
 
     @PostMapping
-    public void addBooking(@RequestBody Booking booking) {
+    public ResponseEntity<Booking> addBooking(@RequestBody Booking booking) {
         bookingService.addBooking(booking);
+        return new ResponseEntity<>(booking, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
