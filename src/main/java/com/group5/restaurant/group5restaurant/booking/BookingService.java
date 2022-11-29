@@ -34,7 +34,7 @@ public class BookingService {
             }
         }
         return true;
-    }
+    }   
 
     public Booking addBooking(BookingDTO booking) {
         if (!guestService.doesGuestExist(booking.getGuestName())) return null;
