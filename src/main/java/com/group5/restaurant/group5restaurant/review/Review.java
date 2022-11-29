@@ -8,15 +8,15 @@ public class Review {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long reviewId;
 
     @Column(name = "reviewerName")
     private String reviewerName;
     @Column(name = "grade")
     private int grade;
 
-    public Review(Long id, String reviewerName, int grade) {
-        this.id = id;
+    public Review(Long reviewId, String reviewerName, int grade) {
+        this.reviewId = reviewId;
         this.reviewerName = reviewerName;
         this.grade = grade;
     }
@@ -25,12 +25,12 @@ public class Review {
 
     }
 
-    public Long getId() {
-        return id;
+    public Long getReviewId() {
+        return reviewId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setReviewId(Long reviewId) {
+        this.reviewId = reviewId;
     }
 
     public String getReviewerName() {
@@ -49,12 +49,5 @@ public class Review {
         this.grade = grade;
     }
 
-    @Override
-    public String toString() {
-        return "Review{" +
-                "id=" + id +
-                ", reviewerName='" + reviewerName + '\'' +
-                ", grade=" + grade +
-                '}';
-    }
+
 }
