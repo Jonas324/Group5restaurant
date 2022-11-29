@@ -18,20 +18,14 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
-
     @GetMapping
-    public ResponseEntity<List<Review>> getAllReviews() {
-        List<Review> reviews = reviewService.getReviews();
-        if (reviews.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(reviews, HttpStatus.OK);
+    public List<Review> getReview(){
+        return reviewService.getReviews();
     }
 
     @PostMapping
-    public ResponseEntity<Review> registerNewReview(@RequestBody Review review) {
+    public void registerNewReview(@RequestBody Review review){
         reviewService.addNewReview(review);
-        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("{reviewId}")
