@@ -23,6 +23,11 @@ public class Dish {
         this.dishName = dishName;
     }
 
+    public Dish(String dishName, Integer price) {
+        this.dishName = dishName;
+        this.price = price;
+    }
+
     public Integer getId() {
         return dishId;
     }

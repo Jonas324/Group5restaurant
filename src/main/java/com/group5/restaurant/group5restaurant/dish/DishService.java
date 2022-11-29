@@ -15,8 +15,9 @@ public class DishService {
         return dishRepository.findAll();
     }
 
-    public void addDish(Dish dish) {
-        dishRepository.save(dish);
+    public Dish addDish(DishDTO dish) {
+        Dish d = dishRepository.save(new Dish(dish.getDishName(), dish.getPrice()));
+        return d;
     }
 
     public void updateDish(Integer id, String dishName, Integer price) {
