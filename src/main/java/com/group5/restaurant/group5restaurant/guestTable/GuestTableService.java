@@ -1,7 +1,5 @@
 package com.group5.restaurant.group5restaurant.guestTable;
 
-import com.group5.restaurant.group5restaurant.guest.Guest;
-import com.group5.restaurant.group5restaurant.guestTable.GuestTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +22,9 @@ public class GuestTableService {
         return (List<GuestTable>) guestTableRepository.findAll();
     }
 
-    public void addNewGuestTable(GuestTable guestTable) {
-        Optional<GuestTable> guestTableOptional = guestTableRepository.findGuestTableByName(guestTable.getGuestTableName());
-        if (guestTableOptional.isPresent()){
-            throw new IllegalStateException("guestTableName taken");
-        }
-        guestTableRepository.save(guestTable);
+    public GuestTable addNewGuestTable(GuestTableDTO guestTable) {
+        GuestTable d = guestTableRepository.save(new GuestTable(guestTable.getGuestTableName(), guestTable.getGuestTableSize()));
+        return d;
     }
 
     public void deleteGuestTable(Long guestTableId) {

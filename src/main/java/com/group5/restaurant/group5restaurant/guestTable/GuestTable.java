@@ -9,15 +9,15 @@ import javax.persistence.*;
 public class GuestTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long guestTableId;
     private String guestTableName;
 
     private int guestTableSize;
 
     public GuestTable(){}
 
-    public GuestTable(Long id, String guestTableName, int guestTableSize){
-        this.id = id;
+    public GuestTable(Long guestTableId, String guestTableName, int guestTableSize){
+        this.guestTableId = guestTableId;
         this.guestTableName = guestTableName;
         this.guestTableSize = guestTableSize;
 
@@ -27,12 +27,17 @@ public class GuestTable {
         this.guestTableName = guestTableName;
     }
 
-    public Long getId() {
-        return id;
+    public GuestTable(String guestTableName, int guestTableSize) {
+        this.guestTableName = guestTableName;
+        this.guestTableSize = guestTableSize;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getGuestTableId() {
+        return guestTableId;
+    }
+
+    public void setGuestTableId(Long guestTableId) {
+        this.guestTableId = guestTableId;
     }
 
     public String getGuestTableName() {
@@ -51,11 +56,4 @@ public class GuestTable {
         this.guestTableSize = guestTableSize;
     }
 
-    @Override
-    public String toString() {
-        return "GuestTable{" +
-                "id=" + id +
-                ", guestTableName='" + guestTableName + '\'' +
-                '}';
-    }
 }

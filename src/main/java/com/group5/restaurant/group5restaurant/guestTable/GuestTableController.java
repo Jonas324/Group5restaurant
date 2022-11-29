@@ -1,6 +1,7 @@
 package com.group5.restaurant.group5restaurant.guestTable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,9 +28,12 @@ public class GuestTableController {
     }
 
     @PostMapping
-    public ResponseEntity<GuestTable> registerNewGuestTable(@RequestBody GuestTable guestTable) {
-        guestTableService.addNewGuestTable(guestTable);
-        return ResponseEntity.status(201).body(guestTable);
+    public ResponseEntity<GuestTable> registerNewGuestTable(@RequestBody GuestTableDTO guestTable) {
+        GuestTable d = guestTableService.addNewGuestTable(guestTable);
+        if (d == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(d, HttpStatus.CREATED);
     }
 
     @DeleteMapping("{tableId}")
