@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Service
 public class ReviewService {
@@ -24,9 +23,11 @@ public class ReviewService {
         return reviewRepository.findAll();
     }
 
-    public void addNewReview(Review review) {
+    public void addNewReview(ReviewDTO review) {
 
-        reviewRepository.save(review);
+        Review newReview = new Review();
+        newReview.setReviewerName(review.getReviewerName());
+        reviewRepository.save(newReview);
     }
 
     public void deleteReview(Long reviewId) {

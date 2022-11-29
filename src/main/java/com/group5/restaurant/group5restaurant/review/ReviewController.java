@@ -24,7 +24,7 @@ public class ReviewController {
     }
 
     @PostMapping
-    public void registerNewReview(@RequestBody Review review){
+    public void registerNewReview(@RequestBody ReviewDTO review){
         reviewService.addNewReview(review);
     }
 
