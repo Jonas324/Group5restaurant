@@ -23,12 +23,14 @@ public class GuestService {
         return guestRepository.findAll();
     }
 
-    public void addNewGuest(Guest guest) {
+    public void addNewGuest(GuestDTO guest) {
         Optional<Guest> guestOptional = guestRepository.findGuestByName(guest.getGuestName());
         if (guestOptional.isPresent()){
             throw new IllegalStateException("guestName taken");
         }
-        guestRepository.save(guest);
+        Guest newGuest = new Guest();
+        newGuest.setGuestName(guest.getGuestName());
+        guestRepository.save(newGuest);
     }
 
     public void deleteGuest(Long guestId) {
