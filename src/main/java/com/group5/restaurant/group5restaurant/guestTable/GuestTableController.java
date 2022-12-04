@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
-@RequestMapping("/api/tables")
+@RequestMapping("api/tables")
 
 public class GuestTableController {
 
