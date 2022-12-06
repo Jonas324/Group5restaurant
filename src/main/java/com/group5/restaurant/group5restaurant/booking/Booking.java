@@ -7,8 +7,6 @@ import java.util.Date;
 @Table(name = "Bookings")
 public class Booking {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BookingID")
